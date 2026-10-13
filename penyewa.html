@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Sewa - PlayZone</title>
+    <link rel="stylesheet" href="penyewa.css">
+</head>
+
+<body>
+
+<header class="nav">
+    <a class="logo" href="sewaps.html">
+        Play<span>Zone</span>
+    </a>
+
+    <a href="sewaps.html" class="kembali">
+        ← Kembali
+    </a>
+</header>
+
+<main>
+
+    <!-- LOGIN -->
+    <section id="halamanLogin" class="box login-box">
+
+        <h1>Cek Riwayat Sewa</h1>
+
+        <p>
+            Masukkan nama dan nomor HP yang digunakan saat melakukan pemesanan.
+        </p>
+
+        <form id="formLogin">
+
+            <label>
+                Nama Penyewa
+                <input
+                    type="text"
+                    id="loginNama"
+                    placeholder="Masukkan nama lengkap"
+                    required
+                >
+            </label>
+
+            <label>
+                Nomor HP
+                <input
+                    type="tel"
+                    id="loginHp"
+                    placeholder="08xxxxxxxxxx"
+                    required
+                >
+            </label>
+
+            <p id="pesanLogin" class="error"></p>
+
+            <button type="submit" class="btn">
+                Masuk
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- DATA SEWA -->
+    <section id="halamanSewa" class="sewa-page" hidden>
+
+        <div class="panel-kepala">
+
+            <div>
+                <p class="kecil">Selamat datang</p>
+                <h1 id="namaPenyewa"></h1>
+            </div>
+
+            <button id="logout" class="btn logout">
+                Keluar
+            </button>
+
+        </div>
+
+
+        <div class="status">
+
+            <div class="info">
+                <small>Total Pesanan</small>
+                <strong id="jumlahPesanan">0</strong>
+            </div>
+
+            <div class="info">
+                <small>Total Pembayaran</small>
+                <strong id="totalPembayaran">Rp0</strong>
+            </div>
+
+            <div class="info">
+                <small>Pesanan Terakhir</small>
+                <strong id="pesananTerakhir">-</strong>
+            </div>
+
+        </div>
+
+
+        <h2>Riwayat Sewa</h2>
+
+        <div id="daftarRiwayat" class="riwayat">
+        </div>
+
+        <div id="tidakAdaData" class="box kosong" hidden>
+            <h3>Belum ada riwayat sewa</h3>
+            <p>
+                Kamu belum memiliki pesanan dengan nama dan nomor HP tersebut.
+            </p>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 PlayZone. Main seru, tetap bijak.
+</footer>
+
+<script src="penyewa.js"></script>
+
+</body>
+</html>

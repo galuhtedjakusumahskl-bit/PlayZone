@@ -1,0 +1,1004 @@
+:root {
+
+    --bg: #0a1033;
+    --bg2: #101848;
+    --panel: #172058;
+
+    --ink: #eef1ff;
+    --muted: #a3aee0;
+
+    --aksen: #29d9ff;
+    --kuning: #ffd23f;
+
+    --hijau: #4ee3a5;
+    --merah: #ff5a5f;
+
+    --border: #303a76;
+
+}
+
+
+* {
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+body {
+
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(41, 217, 255, 0.12),
+            transparent 35%
+        ),
+        var(--bg);
+
+    color: var(--ink);
+
+    min-height: 100vh;
+
+}
+
+
+[hidden] {
+
+    display: none !important;
+
+}
+
+
+/* =========================
+   LOGIN ADMIN
+========================= */
+
+.login-admin {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+}
+
+
+.login-card {
+
+    width: 100%;
+
+    max-width: 450px;
+
+    background: rgba(23, 32, 88, 0.95);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+
+}
+
+
+.logo {
+
+    text-decoration: none;
+
+    font-size: 1.7rem;
+
+    font-weight: 900;
+
+    color: var(--ink);
+
+}
+
+
+.logo span {
+
+    color: var(--aksen);
+
+}
+
+
+.login-card .logo {
+
+    display: block;
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+}
+
+
+.login-card h1 {
+
+    font-size: 2rem;
+
+    margin-bottom: 8px;
+
+}
+
+
+.deskripsi {
+
+    color: var(--muted);
+
+    margin-bottom: 28px;
+
+}
+
+
+form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+
+label {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    font-weight: 700;
+
+}
+
+
+input,
+select {
+
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border-radius: 9px;
+
+    border: 2px solid #59628e;
+
+    background: var(--bg);
+
+    color: var(--ink);
+
+    font-size: 1rem;
+
+}
+
+
+input:focus,
+select:focus {
+
+    outline: none;
+
+    border-color: var(--aksen);
+
+}
+
+
+.btn {
+
+    border: none;
+
+    border-radius: 9px;
+
+    padding: 12px 20px;
+
+    font-size: 1rem;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+.btn:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+.btn-login {
+
+    width: 100%;
+
+    background: var(--aksen);
+
+    color: var(--bg);
+
+}
+
+
+.kembali {
+
+    display: block;
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    color: var(--muted);
+
+    text-decoration: none;
+
+}
+
+
+.kembali:hover {
+
+    color: var(--aksen);
+
+}
+
+
+.pesan-error {
+
+    color: var(--merah);
+
+    min-height: 20px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar-admin {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 10;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 16px 5%;
+
+    background: rgba(10, 16, 51, 0.95);
+
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+.admin-kanan {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    color: var(--muted);
+
+    font-weight: 700;
+
+}
+
+
+.btn-logout {
+
+    background: var(--merah);
+
+    color: white;
+
+    padding: 9px 16px;
+
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 45px 24px;
+
+}
+
+
+.judul-dashboard {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.judul-dashboard h1 {
+
+    font-size: 2.4rem;
+
+    margin: 5px 0;
+
+}
+
+
+.judul-dashboard p:last-child {
+
+    color: var(--muted);
+
+}
+
+
+.kecil {
+
+    color: var(--aksen);
+
+    font-weight: 800;
+
+}
+
+
+.btn-tambah {
+
+    background: var(--aksen);
+
+    color: var(--bg);
+
+}
+
+
+/* =========================
+   STATISTIK
+========================= */
+
+.statistik {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.stat-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background: var(--panel);
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+}
+
+
+.stat-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    background: rgba(41, 217, 255, 0.1);
+
+    border-radius: 12px;
+
+    font-size: 1.4rem;
+
+}
+
+
+.stat-card small {
+
+    display: block;
+
+    color: var(--muted);
+
+    margin-bottom: 4px;
+
+}
+
+
+.stat-card strong {
+
+    font-size: 1.4rem;
+
+}
+
+
+/* =========================
+   TOOLBAR
+========================= */
+
+.toolbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.search {
+
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: var(--panel);
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    padding: 0 14px;
+
+}
+
+
+.search input {
+
+    border: none;
+
+    background: transparent;
+
+}
+
+
+.search input:focus {
+
+    border: none;
+
+}
+
+
+.toolbar select {
+
+    max-width: 230px;
+
+}
+
+
+/* =========================
+   TABEL
+========================= */
+
+.tabel-container {
+
+    background: var(--panel);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+}
+
+
+.tabel-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 22px;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+
+.tabel-header h2 {
+
+    margin-bottom: 5px;
+
+}
+
+
+.tabel-header p {
+
+    color: var(--muted);
+
+}
+
+
+#jumlahData {
+
+    color: var(--aksen);
+
+    font-weight: 800;
+
+}
+
+
+.table-scroll {
+
+    overflow-x: auto;
+
+}
+
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 1050px;
+
+}
+
+
+th {
+
+    background: var(--bg2);
+
+    color: var(--aksen);
+
+    text-align: left;
+
+    padding: 14px;
+
+    font-size: 0.9rem;
+
+}
+
+
+td {
+
+    padding: 14px;
+
+    border-bottom: 1px solid var(--border);
+
+    color: var(--ink);
+
+}
+
+
+tbody tr:hover {
+
+    background: rgba(41, 217, 255, 0.05);
+
+}
+
+
+.harga {
+
+    color: var(--kuning);
+
+    font-weight: 800;
+
+}
+
+
+.status {
+
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 0.78rem;
+
+    font-weight: 800;
+
+}
+
+
+.status-lunas {
+
+    background: rgba(78, 227, 165, 0.15);
+
+    color: var(--hijau);
+
+}
+
+
+.status-belum {
+
+    background: rgba(255, 90, 95, 0.15);
+
+    color: var(--merah);
+
+}
+
+
+.status-menunggu {
+
+    background: rgba(255, 210, 63, 0.15);
+
+    color: var(--kuning);
+
+}
+
+
+/* =========================
+   TOMBOL AKSI
+========================= */
+
+.aksi {
+
+    display: flex;
+
+    gap: 7px;
+
+}
+
+
+.btn-edit,
+.btn-hapus {
+
+    padding: 7px 10px;
+
+    border-radius: 7px;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+}
+
+
+.btn-edit {
+
+    background: rgba(41, 217, 255, 0.15);
+
+    color: var(--aksen);
+
+}
+
+
+.btn-hapus {
+
+    background: rgba(255, 90, 95, 0.15);
+
+    color: var(--merah);
+
+}
+
+
+.btn-edit:hover,
+.btn-hapus:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =========================
+   DATA KOSONG
+========================= */
+
+.data-kosong {
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+}
+
+
+.data-kosong div {
+
+    font-size: 3rem;
+
+    margin-bottom: 10px;
+
+}
+
+
+.data-kosong p {
+
+    color: var(--muted);
+
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.7);
+
+    backdrop-filter: blur(5px);
+
+}
+
+
+.modal-box {
+
+    width: 100%;
+
+    max-width: 750px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: var(--panel);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+}
+
+
+.modal-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 25px;
+
+}
+
+
+.modal-header h2 {
+
+    margin-top: 5px;
+
+}
+
+
+.btn-tutup {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--bg);
+
+    color: var(--ink);
+
+    font-size: 1.5rem;
+
+    cursor: pointer;
+
+}
+
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+
+}
+
+
+.modal-footer {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+
+}
+
+
+.btn-batal {
+
+    background: var(--bg);
+
+    color: var(--ink);
+
+}
+
+
+.btn-simpan {
+
+    background: var(--aksen);
+
+    color: var(--bg);
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    text-align: center;
+
+    color: var(--muted);
+
+    padding: 25px;
+
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .statistik {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .navbar-admin {
+
+        padding: 14px 20px;
+
+    }
+
+
+    .admin-kanan span {
+
+        display: none;
+
+    }
+
+
+    .container {
+
+        padding: 30px 15px;
+
+    }
+
+
+    .judul-dashboard {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .judul-dashboard h1 {
+
+        font-size: 2rem;
+
+    }
+
+
+    .toolbar {
+
+        flex-direction: column;
+
+    }
+
+
+    .toolbar select {
+
+        max-width: none;
+
+    }
+
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .statistik {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .login-card {
+
+        padding: 28px 22px;
+
+    }
+
+}

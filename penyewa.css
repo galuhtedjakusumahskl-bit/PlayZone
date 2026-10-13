@@ -1,0 +1,270 @@
+:root {
+    --bg: #0a1033;
+    --panel: #172058;
+    --ink: #eef1ff;
+    --muted: #a3aee0;
+    --aksen: #29d9ff;
+    --kuning: #ffd23f;
+    --merah: #ff5a5f;
+    --hijau: #4ee3a5;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 7%;
+    background: rgba(10, 16, 51, 0.95);
+    border-bottom: 1px solid #29336f;
+}
+
+.logo {
+    color: var(--ink);
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--aksen);
+}
+
+.kembali {
+    color: var(--aksen);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+main {
+    max-width: 1050px;
+    margin: auto;
+    padding: 50px 24px;
+}
+
+.box {
+    background: var(--panel);
+    border-radius: 18px;
+    padding: 30px;
+}
+
+.login-box {
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+h1 {
+    margin-bottom: 12px;
+}
+
+h2 {
+    margin: 35px 0 20px;
+}
+
+p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.login-box > p {
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 700;
+}
+
+input {
+    padding: 13px;
+    border-radius: 9px;
+    border: 2px solid #59628e;
+    background: var(--bg);
+    color: white;
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: 2px solid var(--aksen);
+}
+
+.btn {
+    padding: 13px 22px;
+    border: none;
+    border-radius: 9px;
+    background: var(--aksen);
+    color: var(--bg);
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.logout {
+    background: var(--merah);
+    color: white;
+}
+
+.error {
+    color: var(--merah);
+    font-weight: 700;
+    min-height: 20px;
+}
+
+.panel-kepala {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.kecil {
+    color: var(--aksen);
+    font-weight: 700;
+}
+
+.status {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin: 30px 0;
+}
+
+.info {
+    background: var(--panel);
+    border: 1px solid #303a76;
+    padding: 20px;
+    border-radius: 14px;
+}
+
+.info small {
+    display: block;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.info strong {
+    font-size: 1.25rem;
+}
+
+.riwayat {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.kartu-sewa {
+    background: var(--panel);
+    border: 1px solid #303a76;
+    border-radius: 15px;
+    padding: 22px;
+}
+
+.kartu-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 1px solid #303a76;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.kartu-header h3 {
+    color: var(--aksen);
+}
+
+.status-bayar {
+    background: rgba(78, 227, 165, 0.15);
+    color: var(--hijau);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.detail div {
+    background: #101848;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.detail small {
+    display: block;
+    color: var(--muted);
+}
+
+.detail strong {
+    display: block;
+    margin-top: 4px;
+}
+
+.total-bayar {
+    margin-top: 15px;
+    font-size: 1.4rem;
+    color: var(--kuning);
+    font-weight: 800;
+}
+
+.kosong {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: var(--muted);
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 700px) {
+
+    .status {
+        grid-template-columns: 1fr;
+    }
+
+    .detail {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-kepala {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .kartu-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

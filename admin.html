@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin - PlayZone</title>
+
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HALAMAN LOGIN ADMIN
+    ========================== -->
+
+    <section id="loginAdmin" class="login-admin">
+
+        <div class="login-card">
+
+            <div class="logo">
+                Play<span>Zone</span>
+            </div>
+
+            <h1>Login Admin</h1>
+
+            <p class="deskripsi">
+                Masuk untuk mengelola data penyewa PlayZone.
+            </p>
+
+            <form id="formAdmin">
+
+                <label>
+                    Username
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Masukkan username"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Password
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Masukkan password"
+                        required
+                    >
+                </label>
+
+                <p id="pesanLogin" class="pesan-error"></p>
+
+                <button type="submit" class="btn btn-login">
+                    Login Admin
+                </button>
+
+            </form>
+
+            <a href="sewaps.html" class="kembali">
+                ← Kembali ke halaman utama
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         DASHBOARD ADMIN
+    ========================== -->
+
+    <section id="dashboardAdmin" hidden>
+
+        <!-- NAVBAR -->
+
+        <header class="navbar-admin">
+
+            <a href="sewaps.html" class="logo">
+                Play<span>Zone</span>
+            </a>
+
+            <div class="admin-kanan">
+
+                <span>
+                    👤 Admin
+                </span>
+
+                <button id="btnLogout" class="btn btn-logout">
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <main class="container">
+
+            <!-- JUDUL -->
+
+            <section class="judul-dashboard">
+
+                <div>
+                    <p class="kecil">Dashboard Admin</p>
+
+                    <h1>Kelola Penyewa</h1>
+
+                    <p>
+                        Kelola data penyewa dan riwayat pemesanan PlayZone.
+                    </p>
+                </div>
+
+                <button
+                    id="btnTambah"
+                    class="btn btn-tambah"
+                >
+                    + Tambah Penyewa
+                </button>
+
+            </section>
+
+
+            <!-- STATISTIK -->
+
+            <section class="statistik">
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        👥
+                    </span>
+
+                    <div>
+                        <small>Total Penyewa</small>
+                        <strong id="totalPenyewa">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        🎮
+                    </span>
+
+                    <div>
+                        <small>Total Pesanan</small>
+                        <strong id="totalPesanan">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        💰
+                    </span>
+
+                    <div>
+                        <small>Total Pembayaran</small>
+                        <strong id="totalUang">Rp0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        ⏳
+                    </span>
+
+                    <div>
+                        <small>Belum Lunas</small>
+                        <strong id="belumLunas">0</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PENCARIAN -->
+
+            <section class="toolbar">
+
+                <div class="search">
+
+                    <span>🔎</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Cari nama atau nomor HP..."
+                    >
+
+                </div>
+
+
+                <select id="filterStatus">
+
+                    <option value="semua">
+                        Semua Status
+                    </option>
+
+                    <option value="Lunas">
+                        Lunas
+                    </option>
+
+                    <option value="Belum Dibayar">
+                        Belum Dibayar
+                    </option>
+
+                    <option value="Menunggu pembayaran">
+                        Menunggu pembayaran
+                    </option>
+
+                </select>
+
+            </section>
+
+
+            <!-- TABEL PENYEWA -->
+
+            <section class="tabel-container">
+
+                <div class="tabel-header">
+
+                    <div>
+                        <h2>Daftar Penyewa</h2>
+
+                        <p>
+                            Data penyewa yang terdaftar di PlayZone.
+                        </p>
+                    </div>
+
+                    <span id="jumlahData">
+                        0 data
+                    </span>
+
+                </div>
+
+
+                <div class="table-scroll">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>No. HP</th>
+                                <th>Konsol</th>
+                                <th>Tanggal</th>
+                                <th>Waktu</th>
+                                <th>Lama</th>
+                                <th>Total</th>
+                                <th>Pembayaran</th>
+                                <th>Aksi</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="tabelPenyewa">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div
+                    id="dataKosong"
+                    class="data-kosong"
+                    hidden
+                >
+                    <div>📭</div>
+
+                    <h3>Data tidak ditemukan</h3>
+
+                    <p>
+                        Belum ada penyewa yang sesuai dengan pencarian.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <footer>
+            © 2026 PlayZone. Panel Admin.
+        </footer>
+
+    </section>
+
+
+    <!-- =========================
+         MODAL TAMBAH / EDIT
+    ========================== -->
+
+    <div
+        id="modal"
+        class="modal"
+        hidden
+    >
+
+        <div class="modal-box">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <p class="kecil">
+                        Data Penyewa
+                    </p>
+
+                    <h2 id="judulModal">
+                        Tambah Penyewa
+                    </h2>
+
+                </div>
+
+                <button
+                    id="btnTutupModal"
+                    class="btn-tutup"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="formPenyewa">
+
+                <input
+                    type="hidden"
+                    id="indexEdit"
+                    value="-1"
+                >
+
+
+                <div class="form-grid">
+
+                    <label>
+                        Nama Penyewa
+                        <input
+                            type="text"
+                            id="namaPenyewa"
+                            placeholder="Nama lengkap"
+                            required
+                        >
+                    </label>
+
+
+                    <label>
+                        Nomor HP
+                        <input
+                            type="tel"
+                            id="hpPenyewa"
+                            placeholder="08xxxxxxxxxx"
+                            required
+                        >
+                    </label>
+
+
+                    <label>
+                        Konsol
+                        <select id="konsolPenyewa">
+
+                            <option value="PS4">
+                                PS4
+                            </option>
+
+                            <option value="PS5">
+                                PS5
+                            </option>
+
+                        </select>
+                    </label>
+
+
+                    <label>
+                        Lama Sewa
+                        <input
+                            type="number"
+                            id="lamaPenyewa"
+                            min="1"
+                            max="24"
+                            value="3"
+                            required
+                        >
+                    </label>
+
+
+                    <label>
+                        Tanggal Sewa
+                        <input
+                            type="date"
+                            id="tanggalPenyewa"
+                            required
+                        >
+                    </label>
+
+
+                    <label>
+                        Waktu Pesanan
+                        <input
+                            type="time"
+                            id="waktuPenyewa"
+                            required
+                        >
+                    </label>
+
+
+                    <label>
+                        Metode Pembayaran
+                        <select id="metodePenyewa">
+
+                            <option value="Cash">
+                                Cash
+                            </option>
+
+                            <option value="QRIS">
+                                QRIS
+                            </option>
+
+                            <option value="Transfer bank">
+                                Transfer bank
+                            </option>
+
+                            <option value="E-wallet">
+                                E-wallet
+                            </option>
+
+                        </select>
+                    </label>
+
+
+                    <label>
+                        Status Pembayaran
+                        <select id="statusPenyewa">
+
+                            <option value="Belum Dibayar">
+                                Belum Dibayar
+                            </option>
+
+                            <option value="Menunggu pembayaran">
+                                Menunggu pembayaran
+                            </option>
+
+                            <option value="Lunas">
+                                Lunas
+                            </option>
+
+                        </select>
+                    </label>
+
+
+                    <label>
+                        Total Pembayaran
+                        <input
+                            type="number"
+                            id="totalPenyewa"
+                            placeholder="Contoh: 50000"
+                            min="0"
+                            required
+                        >
+                    </label>
+
+
+                    <label>
+                        Pengambilan
+                        <select id="pengambilanPenyewa">
+
+                            <option value="Ambil sendiri">
+                                Ambil sendiri
+                            </option>
+
+                            <option value="Diantar">
+                                Diantar
+                            </option>
+
+                        </select>
+                    </label>
+
+                </div>
+
+
+                <div class="modal-footer">
+
+                    <button
+                        type="button"
+                        id="btnBatal"
+                        class="btn btn-batal"
+                    >
+                        Batal
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn btn-simpan"
+                    >
+                        Simpan Data
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>
