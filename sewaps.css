@@ -213,3 +213,6 @@ button.btn { font: inherit; font-weight: 800; font-size: 1rem; cursor: pointer; 
 .pilihan.tumpuk { flex-direction: column; gap: 10px; }
 .info-bayar { grid-column: 1 / -1; color: var(--muted); font-size: 0.95rem; }
 .catatan-pesan { grid-column: 1 / -1; color: var(--kuning); font-weight: 700; min-height: 1.4em; }
+/* Tautan admin di footer */
+.admin-link { margin-left: 14px; color: var(--aksen); font-weight: 700; text-decoration: none; border: 1px solid var(--aksen); border-radius: 999px; padding: 2px 12px; font-size: 0.85rem; }
+.admin-link:hover { background: var(--aksen); color: var(--bg); }
